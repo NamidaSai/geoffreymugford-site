@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------
-   Geoffrey Mugford — freelance landing page
+   Geoffrey Mugford - freelance landing page
    Plain static CSS, no build step. Warm dark theme.
    Retune via the variables below.
 ------------------------------------------------------------------- */
@@ -7,7 +7,7 @@
 :root {
   color-scheme: dark;
 
-  /* Palette — warm near-black surfaces, off-white ink, terracotta accent */
+  /* Palette - warm near-black surfaces, off-white ink, terracotta accent */
   --bg:            #14110D;
   --surface:       #1C1813;   /* elevated band (work) */
   --surface-2:     #100D0A;   /* deepest (footer) */
@@ -219,7 +219,8 @@ section { padding-block: var(--space-6); }
   letter-spacing: 0.02em;
   z-index: 0;
 }
-.project__media img {
+.project__media img,
+.project__media video {
   position: relative;
   z-index: 1;
   width: 100%;
