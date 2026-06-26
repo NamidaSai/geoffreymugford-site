@@ -313,6 +313,12 @@ section { padding-block: var(--space-6); }
   .hero { min-height: auto; padding-block: var(--space-6); }
 }
 
+@media (max-width: 520px) {
+  .site-header__inner { gap: var(--space-2); }
+  .wordmark { font-size: 1rem; }
+  .site-nav { gap: 0.9rem; font-size: 0.85rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
