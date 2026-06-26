@@ -1,17 +1,21 @@
 /* ----------------------------------------------------------------
    Geoffrey Mugford — freelance landing page
-   Plain static CSS, no build step. Retune via the variables below.
+   Plain static CSS, no build step. Warm dark theme.
+   Retune via the variables below.
 ------------------------------------------------------------------- */
 
 :root {
-  /* Palette — warm paper, dark ink, one terracotta accent */
-  --paper:        #FBF9F4;
-  --paper-2:      #F2EEE4;
-  --ink:          #1C1A17;
-  --ink-muted:    #6A655B;
-  --accent:       #B4502E;
-  --accent-dark:  #8F3D21;
-  --line:         #E3DCCD;
+  color-scheme: dark;
+
+  /* Palette — warm near-black surfaces, off-white ink, terracotta accent */
+  --bg:            #14110D;
+  --surface:       #1C1813;   /* elevated band (work) */
+  --surface-2:     #100D0A;   /* deepest (footer) */
+  --text:          #ECE5D8;
+  --text-muted:    #A89E8C;
+  --accent:        #D8693C;
+  --accent-strong: #E8854F;   /* hover / brighter */
+  --border:        #2C2620;
 
   /* Type */
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
@@ -34,8 +38,8 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.65;
@@ -62,7 +66,7 @@ section { padding-block: var(--space-6); }
   font-size: clamp(1.5rem, 3vw, 2rem);
   letter-spacing: -0.01em;
   margin: 0 0 var(--space-4);
-  color: var(--ink);
+  color: var(--text);
 }
 .section-title::after {
   content: "";
@@ -78,8 +82,8 @@ section { padding-block: var(--space-6); }
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--text);
+  color: var(--bg);
   padding: var(--space-1) var(--space-2);
   z-index: 100;
 }
@@ -92,9 +96,9 @@ section { padding-block: var(--space-6); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
 }
 .site-header__inner {
   display: flex;
@@ -108,7 +112,7 @@ section { padding-block: var(--space-6); }
   font-size: 1.15rem;
   letter-spacing: -0.01em;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--text);
 }
 .site-nav {
   display: flex;
@@ -118,10 +122,10 @@ section { padding-block: var(--space-6); }
 }
 .site-nav a {
   text-decoration: none;
-  color: var(--ink-muted);
+  color: var(--text-muted);
   transition: color 0.15s ease;
 }
-.site-nav a:hover { color: var(--ink); }
+.site-nav a:hover { color: var(--text); }
 .nav-cta {
   color: var(--accent) !important;
   font-weight: 500;
@@ -140,10 +144,10 @@ section { padding-block: var(--space-6); }
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
 }
 .btn:active { transform: translateY(1px); }
-.btn--primary { background: var(--accent); color: #fff; }
-.btn--primary:hover { background: var(--accent-dark); }
-.btn--ghost { border-color: var(--ink); color: var(--ink); }
-.btn--ghost:hover { background: var(--ink); color: var(--paper); }
+.btn--primary { background: var(--accent); color: #14110D; }
+.btn--primary:hover { background: var(--accent-strong); }
+.btn--ghost { border-color: var(--text); color: var(--text); }
+.btn--ghost:hover { background: var(--text); color: var(--bg); }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -154,7 +158,7 @@ section { padding-block: var(--space-6); }
 }
 .hero__eyebrow {
   font-size: clamp(1rem, 2.2vw, 1.2rem);
-  color: var(--accent-dark);
+  color: var(--accent);
   font-weight: 500;
   letter-spacing: 0.01em;
   margin: 0 0 var(--space-2);
@@ -170,22 +174,22 @@ section { padding-block: var(--space-6); }
 }
 .hero__lede {
   font-size: clamp(1.1rem, 2vw, 1.3rem);
-  color: var(--ink-muted);
+  color: var(--text-muted);
   max-width: 48ch;
   margin: 0 0 var(--space-4);
 }
-.hero__lede em { color: var(--ink); font-style: italic; }
+.hero__lede em { color: var(--text); font-style: italic; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 
 /* ---------- Work ---------- */
-.work { background: var(--paper-2); }
+.work { background: var(--surface); }
 .project {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: center;
   padding-block: var(--space-4);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 .project:last-child { border-bottom: 0; }
 .project:nth-child(even) .project__media { order: 2; }
@@ -196,8 +200,8 @@ section { padding-block: var(--space-6); }
   border-radius: var(--radius);
   overflow: hidden;
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, var(--paper)) 0%, var(--paper-2) 100%);
-  border: 1px solid var(--line);
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, var(--surface)) 0%, var(--surface) 70%);
+  border: 1px solid var(--border);
   position: relative;
   display: flex;
 }
@@ -211,7 +215,7 @@ section { padding-block: var(--space-6); }
   justify-content: center;
   font-family: var(--font-display);
   font-size: 1.1rem;
-  color: var(--ink-muted);
+  color: var(--text-muted);
   letter-spacing: 0.02em;
   z-index: 0;
 }
@@ -226,7 +230,7 @@ section { padding-block: var(--space-6); }
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--accent-dark);
+  color: var(--accent);
   font-weight: 500;
   margin: 0 0 var(--space-1);
 }
@@ -237,7 +241,7 @@ section { padding-block: var(--space-6); }
   line-height: 1.1;
   margin: 0 0 var(--space-2);
 }
-.project__desc { margin: 0 0 var(--space-3); }
+.project__desc { margin: 0 0 var(--space-3); color: var(--text); }
 .project__quote {
   margin: 0;
   padding-left: var(--space-3);
@@ -247,13 +251,13 @@ section { padding-block: var(--space-6); }
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.05rem;
-  color: var(--ink);
+  color: var(--text);
   margin: 0 0 var(--space-1);
 }
 .project__quote cite {
   font-style: normal;
   font-size: 0.9rem;
-  color: var(--ink-muted);
+  color: var(--text-muted);
 }
 
 /* ---------- About ---------- */
@@ -264,23 +268,24 @@ section { padding-block: var(--space-6); }
 .about p:last-child { margin-bottom: 0; }
 
 /* ---------- Contact ---------- */
-.contact { background: var(--ink); color: var(--paper); }
-.contact .section-title { color: var(--paper); }
+.contact {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 9%, var(--bg)) 0%, var(--bg) 100%);
+  border-top: 1px solid var(--border);
+}
 .contact__lede {
   font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-  color: color-mix(in srgb, var(--paper) 80%, transparent);
+  color: var(--text-muted);
   max-width: 50ch;
   margin: 0 0 var(--space-4);
 }
 .contact__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-.contact .btn--ghost { border-color: var(--paper); color: var(--paper); }
-.contact .btn--ghost:hover { background: var(--paper); color: var(--ink); }
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: var(--ink);
-  color: color-mix(in srgb, var(--paper) 65%, transparent);
-  border-top: 1px solid color-mix(in srgb, var(--paper) 14%, transparent);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
   padding-block: var(--space-3);
   font-size: 0.9rem;
 }
@@ -294,10 +299,11 @@ section { padding-block: var(--space-6); }
 .site-footer p { margin: 0; }
 .site-footer__links { display: flex; gap: var(--space-3); }
 .site-footer__links a {
-  color: color-mix(in srgb, var(--paper) 80%, transparent);
+  color: var(--text-muted);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
-.site-footer__links a:hover { color: var(--paper); }
+.site-footer__links a:hover { color: var(--text); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
